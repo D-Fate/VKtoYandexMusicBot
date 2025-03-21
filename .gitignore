@@ -1,6 +1,9 @@
 # Ignore Mac system files
 .DS_store
 
+# Ignore PyCharm configs
+/.idea
+
 # Ignore files related to API keys
 /config.env
 /vk_config.v2.json
@@ -9,4 +12,5 @@
 /test.py
 
 # Project exclude paths
+/.venv/
 /venv/
