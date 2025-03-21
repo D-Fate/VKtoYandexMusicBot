@@ -1,6 +1,6 @@
 from streaming_service import StreamingService
 from schemas.models import Track, Source
-from typing import List
+from typing import List, Optional
 
 import yandex_music as yam
 
@@ -18,10 +18,10 @@ class YaMusic(StreamingService):
     def parse_source_from_url(self, url: str) -> Source:
         pass
 
-    def get_tracks(self, source: Source) -> List[Track]:
+    def get_tracks(self, source: Source) -> Optional[List[Track]]:
         pass
 
-    def search_track(self, track: Track) -> str | None:
+    def search_track(self, track: Track) -> Optional[str]:
         search_result = self.client.search(
             text=f'{track.artist} — {track.title}',
             type_='track'

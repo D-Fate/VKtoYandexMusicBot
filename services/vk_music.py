@@ -1,6 +1,6 @@
 from streaming_service import StreamingService
 from schemas.models import Track, Source, SourceType
-from typing import List
+from typing import List, Optional
 
 from vk_api import VkApi
 
@@ -24,7 +24,7 @@ class VKMusic(StreamingService):
             id=url[url.find('wall') + 4:]
         )
 
-    def get_tracks(self, source: Source) -> List[Track] | None:
+    def get_tracks(self, source: Source) -> Optional[List[Track]]:
         vk = self.session.get_api()
         if source.type == SourceType.POST:
             post = vk.wall.getById(posts=source.id)

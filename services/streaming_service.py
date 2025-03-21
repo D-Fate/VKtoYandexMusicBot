@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import List
+from typing import List, Optional
 from schemas.models import Track, Source
 
 
@@ -13,11 +13,11 @@ class StreamingService(ABC):
         pass
 
     @abstractmethod
-    def get_tracks(self, source: Source) -> List[Track]:
+    def get_tracks(self, source: Source) -> Optional[List[Track]]:
         pass
 
     @abstractmethod
-    def search_track(self, track: Track) -> str | None:
+    def search_track(self, track: Track) -> Optional[str]:
         pass
 
     def get_track_ids(self, tracks: List[Track]) -> List[str]:
